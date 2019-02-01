@@ -1,0 +1,15 @@
+<h1>Current Exhibitions</h1>
+
+<% for exhibit in @exhibits %>
+
+<div class="exhibit">
+  <h3><a href="/exhibitions/<%= exhibit.id %>"<strong><%= exhibit.title %></strong></a></h3>
+  <h4><%= exhibit.subtitle %></h4>
+  <p><%= exhibit.artist.name %></p>
+  <p>Dates: <%= exhibit.opening %> - <%= exhibit.closing %></p>
+  <p><%= exhibit.description %></p>
+  <p>Category: <%= exhibit.category %></p>
+
+
+<% end %>
+</div>

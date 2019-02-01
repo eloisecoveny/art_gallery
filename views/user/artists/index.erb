@@ -1,0 +1,13 @@
+<h1>Artists</h1>
+
+<% for artist in @artists %>
+
+<div class="artist">
+  <a href="/artists/<%= artist.id %>">
+    <img src="<%= artist.image %>"/>
+  <h3><strong><%= artist.name %></strong> (<%= artist.born %>)</h3></a>
+  <p>Categories: <% for category in artist.categories() %>
+      <%= category %></p>
+    <% end %>
+<% end %>
+</div>
