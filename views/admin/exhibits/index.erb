@@ -3,7 +3,9 @@
 <% for exhibit in @exhibits %>
 
 <div class="exhibit">
-  <h3><a href="/admin/exhibitions/<%= exhibit.id %>"<strong><%= exhibit.title %></strong></a></h3>
+  <a href="/admin/exhibitions/<%= exhibit.id %>">
+  <img src="<%= exhibit.image %>"/>
+  <h3><strong><%= exhibit.title %></strong></h3></a>
   <h4><%= exhibit.subtitle %></h4>
   <p><%= exhibit.artist.name %></p>
   <p><%= exhibit.opening %> - <%= exhibit.closing %></p>
@@ -11,5 +13,5 @@
   <p>Category: <%= exhibit.category %></p>
 
 
-<% end %>
+  <% end %>
 </div>
