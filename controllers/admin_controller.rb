@@ -29,7 +29,7 @@ end
 
 post "/artists/:id" do
   Artist.new(params).update()
-  redirect to "admin/artists"
+  redirect to "admin/artists/#{params["id"]}"
 end
 
 get "/admin/artists/:id" do
