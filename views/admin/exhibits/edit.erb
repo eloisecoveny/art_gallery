@@ -1,0 +1,61 @@
+<h1>Edit exhibit</h1>
+
+<form method="POST" action="/exhibitions/<%= @exhibit.id %>">
+  <div class="form-wrapper">
+
+    <div class="field">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= @exhibit.title %>"/>
+    </div>
+
+    <div class="field">
+      <label for="subtitle">Subtitle:</label>
+      <input type="text" name="subtitle" id="subtitle" value="<%= @exhibit.subtitle %>"/>
+    </div>
+
+    <div class="field">
+      <label for="opening">Opening date:</label>
+      <input type="text" name="opening" id="opening" value="<%= @exhibit.opening %>"/>
+    </div>
+
+    <div class="field">
+      <label for="closing">Closing date:</label>
+      <input type="text" name="closing" id="closing" value="<%= @exhibit.closing %>"/>
+    </div>
+
+    <div class="field">
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description" value="<%= @exhibit.description %>"/>
+    </div>
+
+    <div class="drop-down">
+      <label for="artist_id">Artist:</label>
+      <select name="artist_id" id="artist_id">
+        <% @artists.each do |artist| %>
+          <% if artist.id == @exhibit.artist_id %>
+            <option selected="<%= artist.id %>"><%= artist.name %></option>
+          <% end %>
+          <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="drop-down">
+      <label for="category">Category:</label>
+      <select name="category" id="category" selected="<%= @exhibit.category %>">
+        <option selected="selected"><%= @exhibit.category %></option>
+        <option value="sculpture">sculpture</option>
+        <option value="performance">performance</option>
+        <option value="sound installation">sound installation</option>
+        <option value="painting">painting</option>
+        <option value="ceramics">ceramics</option>
+        <option value="moving image">moving image</option>
+        <option value="printmaking">printmaking</option>
+      </select>
+    </div>
+
+    <div class="button">
+      <input type="submit" value="Confirm Edit"/>
+    </div>
+
+  </form>

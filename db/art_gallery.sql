@@ -17,5 +17,6 @@ CREATE TABLE exhibits (
   closing VARCHAR(255),
   description TEXT,
   artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE,
-  category VARCHAR(255)
+  category VARCHAR(255),
+  image TEXT
 );

@@ -1,0 +1,13 @@
+<h1><%= @exhibit.title %></h1>
+<h2><%= @exhibit.subtitle %></h2>
+
+<p><%= @artist.name %></p>
+<p><strong><%= @exhibit.opening %> - <%= @exhibit.closing %></strong></p>
+
+<p><%= @exhibit.description %></p>
+
+<p>Category: <%= @exhibit.category %></p>
+
+<form action="/admin/exhibitions/<%= @exhibit.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
+
+<form action="/admin/exhibitions/<%= @exhibit.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
