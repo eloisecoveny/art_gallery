@@ -1,6 +1,14 @@
-<h1><%= @artist.name %></h1>
+<div class="show">
+  <h1><%= @artist.name %></h1>
 
-<p>Born <strong><%= @artist.born %></strong></p>
-<p><%= @artist.biography %></p>
+  <img src="<%= @artist.image %>"/>
 
-<form action="/admin/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+  <p>Born <strong><%= @artist.born %></strong></p>
+  <p><%= @artist.biography %></p>
+
+  <div class="buttons">
+    <form action="/admin/artists/<%= @artist.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
+
+    <form action="/admin/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+  </div>
+</div>

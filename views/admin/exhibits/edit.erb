@@ -29,8 +29,8 @@
     </div>
 
     <div class="drop-down">
-      <label for="artist_id">Artist:</label>
-      <select name="artist_id" id="artist_id">
+      <label for="select-artist">Artist:</label>
+      <select name="artist_id" id="select-artist">
         <% @artists.each do |artist| %>
           <% if artist.id == @exhibit.artist_id %>
             <option selected="<%= artist.id %>" value="<%= artist.id %>"><%= artist.name %></option>
