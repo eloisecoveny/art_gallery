@@ -1,16 +1,18 @@
 <h1>Artists</h1>
 
-<% for artist in @artists %>
+<div class="flex-container">
+  <% for artist in @artists %>
+  <div class="item">
+    <a href="/admin/artists/<%= artist.id %>">
+      <img src="<%= artist.image %>"/>
+      <h3><strong><%= artist.name %></strong> (<%= artist.born %>)</h3></a>
+    <p>Categories: <% for category in artist.categories() %>
+    <%= category %></p>
+  <% end %>
 
-<div class="artist">
-  <a href="/admin/artists/<%= artist.id %>">
-    <img src="<%= artist.image %>"/>
-  <h3><strong><%= artist.name %></strong> (<%= artist.born %>)</h3></a>
-  <p>Categories: <% for category in artist.categories() %>
-      <%= category %></p>
-    <% end %>
+    <form action="/admin/artists/<%= artist.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
 
-<form action="/admin/artists/<%= artist.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
+  </div>
 
-<% end %>
+  <% end %>
 </div>

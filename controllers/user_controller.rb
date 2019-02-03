@@ -16,10 +16,17 @@ end
 
 get "/exhibitions" do
   @exhibits = Exhibit.all()
+  @artists = Artist.all()
   erb :"user/exhibits/index"
 end
 
 get "/exhibitions/:id" do
   @exhibit = Exhibit.find(params["id"])
   erb :"user/exhibits/show"
+end
+
+get "/exhibitions/:id/exhibits" do
+  @artist = Artist.find(params["id"])
+  @exhibits = @artist.exhibits()
+  erb :"user/exhibits/index_filter"
 end

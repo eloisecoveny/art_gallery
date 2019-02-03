@@ -3,6 +3,7 @@ require("sinatra/contrib/all")
 require_relative("../models/Artist")
 require_relative("../models/Exhibit")
 also_reload("../models/*")
+require("date")
 
 get "/admin" do
   erb :"admin/index", :layout => :admin_layout

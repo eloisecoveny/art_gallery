@@ -15,20 +15,24 @@
 
     <div class="field">
       <label for="opening">Opening date:</label>
-      <input type="text" name="opening" id="opening"/>
+      <input type="date" id="opening" name="opening"
+       value="<%= @date %>"
+       min="01-01-2019" max="31-12-2025"/>
     </div>
 
     <div class="field">
       <label for="closing">Closing date:</label>
-      <input type="text" name="closing" id="closing"/>
+      <input type="date" name="closing" id="closing"
+      value="<%= @date %>"
+      min="01-01-2019" max="31-12-2025"/>
     </div>
 
-    <div class="field">
+    <div class="big-field">
       <label for="description">Description:</label>
       <input type="text" name="description" id="description"/>
     </div>
 
-    <div class="field">
+    <div class="drop-down">
       <label for="artist_id">Artist:</label>
       <select name="artist_id" id="artist_id">
         <% @artists.each do |artist| %>
