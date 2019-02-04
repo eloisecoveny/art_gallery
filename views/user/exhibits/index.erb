@@ -3,9 +3,9 @@
 <div class="exhibit-wrapper">
 
   <div class="filter-exhibits">
-    <form class="filter">
+    <form method="GET" action="/exhibitions/search">
       <label for="artist_id">Search by Artist:</label>
-      <select name="artist_id" id="artist_id" placeholder="Search Artist">
+      <select name="id" id="artist_id" placeholder="Search Artist">
         <% @artists.each do |artist| %>
         <option value="<%= artist.id %>"><%= artist.name %></option>
         <% end %>
@@ -25,7 +25,7 @@
         <h3><strong><%= exhibit.title %></strong></h3></a>
       <h4><%= exhibit.subtitle %></h4>
       <p><%= exhibit.artist.name %></p>
-      <p><%= exhibit.opening %> - <%= exhibit.closing %></p>
+      <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
       <p>Category: <%= exhibit.category %></p>
     </div>
     <% end %>

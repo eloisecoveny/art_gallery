@@ -6,10 +6,7 @@
     <a href="/admin/artists/<%= artist.id %>">
       <img src="<%= artist.image %>"/>
       <h3><strong><%= artist.name %></strong> (<%= artist.born %>)</h3></a>
-    <p>Categories: <% for category in artist.categories() %>
-    <%= category %></p>
-  <% end %>
-
+    <p>Categories: <%= artist.categories.join(", ") %></p>
   </div>
 
   <% end %>

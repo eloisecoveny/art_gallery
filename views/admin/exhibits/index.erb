@@ -8,7 +8,7 @@
       <h3><strong><%= exhibit.title %></strong></h3></a>
     <h4><%= exhibit.subtitle %></h4>
     <p><%= exhibit.artist.name %></p>
-    <p><%= exhibit.opening %> - <%= exhibit.closing %></p>
+    <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
     <p>Category: <%= exhibit.category %></p>
   </div>
   <% end %>

@@ -4,6 +4,7 @@ require_relative("../models/Exhibit")
 require_relative("../models/Artist")
 also_reload("../models/*")
 
+
 get "/artists" do
   @artists = Artist.all()
   erb :"user/artists/index"
@@ -20,13 +21,14 @@ get "/exhibitions" do
   erb :"user/exhibits/index"
 end
 
-get "/exhibitions/:id" do
-  @exhibit = Exhibit.find(params["id"])
-  erb :"user/exhibits/show"
-end
-
-get "/exhibitions/:id/exhibits" do
+get "/exhibitions/search" do
+  @artists = Artist.all()
   @artist = Artist.find(params["id"])
   @exhibits = @artist.exhibits()
   erb :"user/exhibits/index_filter"
+end
+
+get "/exhibitions/:id" do
+  @exhibit = Exhibit.find(params["id"])
+  erb :"user/exhibits/show"
 end

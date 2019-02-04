@@ -36,7 +36,7 @@ class Exhibit
   end
 
   def self.all()
-    sql = "SELECT * FROM exhibits"
+    sql = "SELECT * FROM exhibits ORDER BY opening ASC"
     exhibits = SqlRunner.run(sql)
     return exhibits.map { |exhibit| Exhibit.new(exhibit) }
   end
@@ -65,6 +65,10 @@ class Exhibit
     values = [type]
     exhibits = SqlRunner.run(sql, values)
     return exhibits.map{ |exhibit| Exhibit.new(exhibit) }
+  end
+
+  def long(which_time)
+    Date.parse(which_time).strftime("%e %B %Y")
   end
 
 end

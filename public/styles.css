@@ -93,7 +93,7 @@ h1 {
   padding-bottom: 3.5em;
 }
 
-.item h3 {
+.item h3, .item h4 {
   font-family: 'Karla', sans-serif;
 }
 
