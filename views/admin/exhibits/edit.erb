@@ -42,16 +42,15 @@
     </div>
 
     <div class="drop-down">
-      <label for="category">Category:</label>
-      <select name="category" id="category" selected="<%= @exhibit.category %>">
-        <option selected="selected"><%= @exhibit.category %></option>
-        <option value="sculpture">sculpture</option>
-        <option value="performance">performance</option>
-        <option value="sound installation">sound installation</option>
-        <option value="painting">painting</option>
-        <option value="ceramics">ceramics</option>
-        <option value="moving image">moving image</option>
-        <option value="printmaking">printmaking</option>
+      <label for="select-category">Category:</label>
+      <select name="category_id" id="select-category">
+        <% @categories.each do |category| %>
+          <% if category.id == @exhibit.category_id %>
+            <option selected="<%= category.id %>" value="<%= category.id %>"><%= category.name %></option>
+          <% else %>
+          <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        <% end %>
       </select>
     </div>
 

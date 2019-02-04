@@ -2,6 +2,7 @@ require("sinatra")
 require("sinatra/contrib/all")
 require_relative("../models/Exhibit")
 require_relative("../models/Artist")
+require_relative("../models/Category")
 also_reload("../models/*")
 
 
@@ -18,14 +19,30 @@ end
 get "/exhibitions" do
   @exhibits = Exhibit.all()
   @artists = Artist.all()
+  @categories = Category.all()
   erb :"user/exhibits/index"
 end
 
-get "/exhibitions/search" do
+get "/exhibitions/artist" do
+  if params["id"] == "all"
+    redirect to "/exhibitions"
+  end
   @artists = Artist.all()
   @artist = Artist.find(params["id"])
   @exhibits = @artist.exhibits()
-  erb :"user/exhibits/index_filter"
+  @categories = Category.all()
+  erb :"user/exhibits/filter_artist"
+end
+
+get "/exhibitions/category" do
+  if params["id"] == "all"
+    redirect to "/exhibitions"
+  end
+  @categories = Category.all()
+  @category = Category.find(params["id"])
+  @exhibits = @category.exhibits()
+  @artists = Artist.all()
+  erb :"user/exhibits/filter_category"
 end
 
 get "/exhibitions/:id" do

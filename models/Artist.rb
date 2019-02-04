@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require("pry")
 
 class Artist
 
@@ -59,7 +60,7 @@ class Artist
   def categories()
     results = []
     for exhibit in exhibits()
-      results.push(exhibit.category)
+      results.push(exhibit.category.name)
     end
     return results
   end

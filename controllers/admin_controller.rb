@@ -2,6 +2,7 @@ require("sinatra")
 require("sinatra/contrib/all")
 require_relative("../models/Artist")
 require_relative("../models/Exhibit")
+require_relative("../models/Category")
 also_reload("../models/*")
 require("date")
 
@@ -51,6 +52,7 @@ end
 
 get "/admin/exhibitions/new" do
   @artists = Artist.all()
+  @categories = Category.all()
   erb :"admin/exhibits/new", :layout => :admin_layout
 end
 
@@ -61,7 +63,9 @@ end
 
 get "/admin/exhibitions/:id/edit" do
   @exhibit = Exhibit.find(params["id"])
+  @artist = @exhibit.artist()
   @artists = Artist.all()
+  @categories = Category.all()
   erb :"admin/exhibits/edit", :layout => :admin_layout
 end
 

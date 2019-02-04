@@ -1,16 +1,16 @@
 <div class="show">
 
+  <img src="<%= @exhibit.image %>"/>
+
   <h1><%= @exhibit.title %></h1>
   <h2><%= @exhibit.subtitle %></h2>
 
-  <img src="<%= @exhibit.image %>"/>
-
   <p><%= @artist.name %></p>
-  <p><strong><%= @exhibit.opening %> - <%= @exhibit.closing %></strong></p>
+  <p><strong><%= @exhibit.long(@exhibit.opening) %> - <%= @exhibit.long(@exhibit.opening) %></strong></p>
 
   <p><%= @exhibit.description %></p>
 
-  <p>Category: <%= @exhibit.category %></p>
+  <p>Category: <%= @exhibit.category.name %></p>
 
   <div class="buttons">
     <form action="/admin/exhibitions/<%= @exhibit.id %>/edit" method="GET"><input type="submit" value="Edit"></form>

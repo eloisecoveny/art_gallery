@@ -74,6 +74,10 @@ h1 {
   font-size: 2.3em;
 }
 
+.show {
+
+}
+
 .show h2 {
   font-family: 'Karla', sans-serif;
 }
@@ -83,6 +87,13 @@ h1 {
   font-size: 0.9em;
 }
 
+.show img {
+  padding-top: 30px;
+  object-fit: cover;
+  height: 300px;
+  width: 300px;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +101,7 @@ h1 {
 }
 
 .item {
-  padding-bottom: 3.5em;
+  padding-bottom: 1em;
 }
 
 .item h3, .item h4 {
@@ -113,16 +124,6 @@ h1 {
   width: 300px;
 }
 
-.show {
-
-}
-
-.show img {
-  object-fit: cover;
-  height: 300px;
-  width: 300px;
-}
-
 input[type=text] {
     padding:5px;
     border:2px solid #ccc;
@@ -134,7 +135,7 @@ input[type=text]:focus {
     border-color:#333;
 }
 
-select[id=category], select[id=select-artist] {
+select[id="select-category"], select[id="select-artist"] {
   font-family: 'Roboto', sans-serif;
   padding: 15px 12px 15px 14px;
   background: White;
@@ -158,8 +159,12 @@ input[type=submit]:hover {
   color: Tomato;
 }
 
-.filter-exhibits {
+.exhibit-wrapper {
   padding-bottom: 2em;
+}
+
+.filter-exhibits {
+  padding-bottom: 0.5em;
   display: flex;
   justify-content: center;
 }

@@ -1,10 +1,14 @@
-<img src="<%= @exhibit.image %>"/>
+<div class="show">
 
-<h1><%= @exhibit.title %></h1>
-<h2><%= @exhibit.subtitle %></h2>
+  <img src="<%= @exhibit.image %>"/>
 
-<p><%= @exhibit.artist.name %></p>
-<p>Dates: <%= @exhibit.opening %> - <%= @exhibit.closing %></p>
-<p><%= @exhibit.description %></p>
-<p>Category: <%= @exhibit.category %></p>
-<p></p>
+  <h1><%= @exhibit.title %></h1>
+  <h2><%= @exhibit.subtitle %></h2>
+
+  <p><%= @exhibit.artist.name %></p>
+  <p><strong><%= @exhibit.long(@exhibit.opening) %> - <%= @exhibit.long(@exhibit.opening) %></strong></p>
+  <p><%= @exhibit.description %></p>
+  <p>Category: <%= @exhibit.category.name %></p>
+  <p></p>
+
+</div>

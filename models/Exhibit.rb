@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Exhibit
 
-  attr_accessor :title, :subtitle, :opening, :closing, :description, :artist_id, :category, :image
+  attr_accessor :title, :subtitle, :opening, :closing, :description, :artist_id, :category_id, :image
   attr_reader :id
 
   def initialize(options)
@@ -13,19 +13,19 @@ class Exhibit
     @closing = options["closing"]
     @description = options["description"]
     @artist_id = options["artist_id"].to_i
-    @category = options["category"]
+    @category_id = options["category_id"].to_i
     @image = options["image"]
   end
 
   def save()
-    sql = "INSERT INTO exhibits (title, subtitle, opening, closing, description, artist_id, category, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
-    values = [@title, @subtitle, @opening, @closing, @description, @artist_id, @category, @image]
+    sql = "INSERT INTO exhibits (title, subtitle, opening, closing, description, artist_id, category_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
+    values = [@title, @subtitle, @opening, @closing, @description, @artist_id, @category_id, @image]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update()
-    sql = "UPDATE exhibits SET (title, subtitle, opening, closing, description, artist_id, category, image) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9"
-    values = [@title, @subtitle, @opening, @closing, @description, @artist_id, @category, @image, @id]
+    sql = "UPDATE exhibits SET (title, subtitle, opening, closing, description, artist_id, category_id, image) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9"
+    values = [@title, @subtitle, @opening, @closing, @description, @artist_id, @category_id, @image, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -60,12 +60,19 @@ class Exhibit
     return Artist.new(artist)
   end
 
-  def self.category(type)
-    sql = "SELECT * FROM exhibits WHERE category = $1"
-    values = [type]
-    exhibits = SqlRunner.run(sql, values)
-    return exhibits.map{ |exhibit| Exhibit.new(exhibit) }
+  def category()
+    sql = "SELECT * FROM categories WHERE id = $1"
+    values = [@category_id]
+    category = SqlRunner.run(sql, values)[0]
+    return Category.new(category)
   end
+
+  # def self.category(type)
+  #   sql = "SELECT * FROM exhibits WHERE category_id = $1"
+  #   values = [type]
+  #   exhibits = SqlRunner.run(sql, values)
+  #   return exhibits.map{ |exhibit| Exhibit.new(exhibit) }
+  # end
 
   def long(which_time)
     Date.parse(which_time).strftime("%e %B %Y")

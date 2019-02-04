@@ -1,8 +1,7 @@
-<h1>Current Exhibitions</h1>
+<h1>Exhibitions by <%= @artist.name %></h1>
 
 <div class="exhibit-wrapper">
 
-<div class="filters">
   <div class="filter-exhibits">
     <form method="GET" action="/exhibitions/artist">
       <label for="artist_id">Search by Artist:</label>
@@ -32,21 +31,20 @@
       </select>
     </form>
   </div>
+
+<div class="flex-container">
+  <% for exhibit in @exhibits %>
+  <div class="item">
+    <a href="/exhibitions/<%= exhibit.id %>">
+      <img src="<%= exhibit.image %>"/>
+      <h3><strong><%= exhibit.title %></strong></h3></a>
+    <h4><%= exhibit.subtitle %></h4>
+    <p><%= exhibit.artist.name %></p>
+    <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
+    <p>Category: <%= exhibit.category.name %></p>
+  </div>
+  <% end %>
 </div>
 
-
-  <div class="flex-container">
-    <% for exhibit in @exhibits %>
-    <div class="item">
-      <a href="/exhibitions/<%= exhibit.id %>">
-        <img src="<%= exhibit.image %>"/>
-        <h3><strong><%= exhibit.title %></strong></h3></a>
-      <h4><%= exhibit.subtitle %></h4>
-      <p><%= exhibit.artist.name %></p>
-      <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
-      <p>Category: <%= exhibit.category.name %></p>
-    </div>
-    <% end %>
-  </div>
 
 </div>

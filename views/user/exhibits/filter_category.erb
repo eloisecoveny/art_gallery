@@ -1,13 +1,29 @@
-<h1>Exhibitions by <%= @artist.name %></h1>
+<h1><%= @category.name.capitalize %></h1>
 
 <div class="exhibit-wrapper">
 
   <div class="filter-exhibits">
-    <form method="GET" action="/exhibitions/search">
+    <form method="GET" action="/exhibitions/artist">
       <label for="artist_id">Search by Artist:</label>
       <select name="id" id="artist_id" placeholder="Search Artist">
+        <option value="all">All Artists</option>
         <% @artists.each do |artist| %>
         <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+      <div class="button">
+        <input type="submit" value="Search"/>
+      </div>
+      </select>
+    </form>
+  </div>
+
+  <div class="filter-exhibits">
+    <form method="GET" action="/exhibitions/category">
+      <label for="category_id">Search by Category:</label>
+      <select name="id" id="category_id" placeholder="Search Category">
+        <option value="all">All Categories</option>
+        <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
         <% end %>
       <div class="button">
         <input type="submit" value="Search"/>
@@ -25,7 +41,7 @@
     <h4><%= exhibit.subtitle %></h4>
     <p><%= exhibit.artist.name %></p>
     <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
-    <p>Category: <%= exhibit.category %></p>
+    <p>Category: <%= exhibit.category.name %></p>
   </div>
   <% end %>
 </div>

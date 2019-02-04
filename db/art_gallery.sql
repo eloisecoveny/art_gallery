@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS exhibits;
+DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS artists;
 
 CREATE TABLE artists (
@@ -9,6 +10,11 @@ CREATE TABLE artists (
   image TEXT
 );
 
+CREATE TABLE categories (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
+);
+
 CREATE TABLE exhibits (
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
@@ -17,6 +23,6 @@ CREATE TABLE exhibits (
   closing VARCHAR(255),
   description TEXT,
   artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE,
-  category VARCHAR(255),
+  category_id INT4 REFERENCES categories(id) ON DELETE CASCADE,
   image TEXT
 );
