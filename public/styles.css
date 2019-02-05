@@ -74,10 +74,6 @@ h1 {
   font-size: 2.3em;
 }
 
-.show {
-
-}
-
 .show h2 {
   font-family: 'Karla', sans-serif;
 }
@@ -141,16 +137,24 @@ input[type=text] {
   padding: 5px;
   -webkit-border-radius: 5px;
   border: solid 0.75px Gray;
-  width: 300px;
+  width: 435px;
 }
 
 input[type=text]:focus {
   border: solid 0.75px Gray;
 }
 
+input[type=date] {
+  margin: 2px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  border: solid 0.75px Gray;
+}
+
 select[id="select-category"], select[id="select-artist"] {
   font-family: 'Roboto', sans-serif;
-  padding: 15px 12px 15px 14px;
+  margin: 2px;
+  padding: 5px;
   background: White;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -160,6 +164,7 @@ select[id="select-category"], select[id="select-artist"] {
 input[type=submit] {
   font-family: 'Roboto', sans-serif;
   font-size: 0.8em;
+  margin: 5px;
   padding:3px 12px;
   background: White;
   border: solid 0.75px Gray;
@@ -172,11 +177,12 @@ input[type=submit]:hover {
   color: Tomato;
 }
 
-.big-field input[type=text].break {
-  word-wrap: break-word;
-  word-break: break-word;
-  height: 50px;
-  width: 100px;
+textarea {
+  margin: 2px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  border: solid 0.75px Gray;
+  width: 440px;
 }
 
 .exhibit-wrapper {
@@ -193,7 +199,7 @@ input[type=submit]:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 3em 10em;
+  padding: 3em 13em;
 }
 
 .show-wrapper h2 {
@@ -222,6 +228,17 @@ input[type=submit]:hover {
   justify-content: center;
   flex-direction: column;
   padding: 0.25em 22em;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.25em 28em;
+}
+
+.category-wrapper ul {
+  list-style-type: none;
 }
 
 form div {

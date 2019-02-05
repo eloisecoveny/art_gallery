@@ -1,7 +1,6 @@
 <h1>All Categories</h1>
 
-
-<div class="field">
+<div class="category-wrapper">
   <form method="GET" action="/admin/exhibitions/categories/edit">
     <ul>
       <% for category in @categories %>
@@ -9,9 +8,12 @@
         <label for="<%= category.id %>"><%= category.name %></label></li>
         <% end %>
       </ul>
-      <input type="submit" value="Edit">
-    </form>
-  </div>
 
-  <form action="/admin/exhibitions/categories/new" method="GET"><input type="submit" value="Add Category"></form>
+      <div class="buttons">
+        <input type="submit" value="Edit">
+      </form>
+
+      <form action="/admin/exhibitions/categories/new" method="GET"><input type="submit" value="Add Category"></form>
+    </div>
+  </div>
 </div>
