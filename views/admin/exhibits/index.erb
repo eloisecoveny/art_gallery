@@ -1,4 +1,4 @@
-<h1>Current Exhibitions</h1>
+<h1>All Exhibitions</h1>
 
 <div class="flex-container">
   <% for exhibit in @exhibits %>
@@ -8,7 +8,7 @@
       <h3><strong><%= exhibit.title %></strong></h3></a>
     <h4><%= exhibit.subtitle %></h4>
     <p><%= exhibit.artist.name %></p>
-    <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
+    <p><strong><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></strong></p>
     <p>Category: <%= exhibit.category.name %></p>
   </div>
   <% end %>

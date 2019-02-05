@@ -40,8 +40,7 @@ get "/admin/artists/:id" do
 end
 
 post "/admin/artists/:id/delete" do
-  artist = Artist.find(params["id"])
-  artist.delete()
+  Artist.find(params["id"]).delete()
   redirect to "/admin/artists"
 end
 
@@ -56,9 +55,28 @@ get "/admin/exhibitions/new" do
   erb :"admin/exhibits/new", :layout => :admin_layout
 end
 
-post "/exhibitions" do
-  Exhibit.new(params).save()
-  redirect to "/admin/exhibitions"
+get "/admin/exhibitions/categories" do
+  @categories = Category.all()
+  erb :"admin/categories/index", :layout => :admin_layout
+end
+
+post "/admin/exhibitions/categories" do
+  Category.new(params).save()
+  redirect to "/admin/exhibitions/categories"
+end
+
+get "/admin/exhibitions/categories/new" do
+  erb :"admin/categories/new", :layout => :admin_layout
+end
+
+get "/admin/exhibitions/categories/edit" do
+  @category = Category.find(params["id"])
+  erb :"admin/categories/edit", :layout => :admin_layout
+end
+
+post "/admin/exhibitions/categories/:id" do
+  Category.new(params).update()
+  redirect to "/admin/exhibitions/categories"
 end
 
 get "/admin/exhibitions/:id/edit" do
@@ -67,6 +85,11 @@ get "/admin/exhibitions/:id/edit" do
   @artists = Artist.all()
   @categories = Category.all()
   erb :"admin/exhibits/edit", :layout => :admin_layout
+end
+
+post "/exhibitions" do
+  Exhibit.new(params).save()
+  redirect to "/admin/exhibitions"
 end
 
 post "/exhibitions/:id" do

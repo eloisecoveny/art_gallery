@@ -1,0 +1,16 @@
+<h1>Edit "<%= @category.name %>"</h1>
+
+<form method="POST" action="/admin/exhibitions/categories/<%= @category.id %>">
+  <div class="form-wrapper">
+
+    <div class="field">
+      <label for="name">Category:</label>
+      <input type="text" name="name" id="name" value="<%= @category.name %>"/>
+    </div>
+
+    <div class="button">
+      <input type="submit" value="Confirm edit"/>
+    </div>
+
+  </div>
+</form>

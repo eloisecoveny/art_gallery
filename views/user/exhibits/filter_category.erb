@@ -2,49 +2,50 @@
 
 <div class="exhibit-wrapper">
 
-  <div class="filter-exhibits">
-    <form method="GET" action="/exhibitions/artist">
-      <label for="artist_id">Search by Artist:</label>
-      <select name="id" id="artist_id" placeholder="Search Artist">
-        <option value="all">All Artists</option>
-        <% @artists.each do |artist| %>
-        <option value="<%= artist.id %>"><%= artist.name %></option>
+  <div class="filters">
+    <div class="filter-exhibits">
+      <form method="GET" action="/exhibitions/artist">
+        <label for="select-artist">Search by Artist:</label>
+        <select name="id" id="select-artist" placeholder="Search Artist">
+          <option value="all">All Artists</option>
+          <% @artists.each do |artist| %>
+          <option value="<%= artist.id %>"><%= artist.name %></option>
+          <% end %>
+          <div class="button">
+            <input type="submit" value="Search"/>
+          </div>
+        </select>
+      </form>
+    </div>
+
+    <div class="filter-exhibits">
+      <form method="GET" action="/exhibitions/category">
+        <label for="select-category">Search by Category:</label>
+        <select name="id" id="select-category" placeholder="Search Category">
+          <option value="all">All Categories</option>
+          <% @categories.each do |category| %>
+          <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+          <div class="button">
+            <input type="submit" value="Search"/>
+          </div>
+        </select>
+      </form>
+    </div>
+
+    <div class="flex-container">
+      <% for exhibit in @exhibits %>
+      <div class="item">
+        <a href="/exhibitions/<%= exhibit.id %>">
+          <img src="<%= exhibit.image %>"/>
+          <h3><strong><%= exhibit.title %></strong></h3></a>
+          <h4><%= exhibit.subtitle %></h4>
+          <p><%= exhibit.artist.name %></p>
+          <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
+          <p>Category: <%= exhibit.category.name %></p>
+        </div>
         <% end %>
-      <div class="button">
-        <input type="submit" value="Search"/>
       </div>
-      </select>
-    </form>
+
+    </div>
   </div>
-
-  <div class="filter-exhibits">
-    <form method="GET" action="/exhibitions/category">
-      <label for="category_id">Search by Category:</label>
-      <select name="id" id="category_id" placeholder="Search Category">
-        <option value="all">All Categories</option>
-        <% @categories.each do |category| %>
-        <option value="<%= category.id %>"><%= category.name %></option>
-        <% end %>
-      <div class="button">
-        <input type="submit" value="Search"/>
-      </div>
-      </select>
-    </form>
-  </div>
-
-<div class="flex-container">
-  <% for exhibit in @exhibits %>
-  <div class="item">
-    <a href="/exhibitions/<%= exhibit.id %>">
-      <img src="<%= exhibit.image %>"/>
-      <h3><strong><%= exhibit.title %></strong></h3></a>
-    <h4><%= exhibit.subtitle %></h4>
-    <p><%= exhibit.artist.name %></p>
-    <p><%= exhibit.long(exhibit.opening) %> - <%= exhibit.long(exhibit.closing) %></p>
-    <p>Category: <%= exhibit.category.name %></p>
-  </div>
-  <% end %>
-</div>
-
-
-</div>

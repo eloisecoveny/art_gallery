@@ -16,8 +16,8 @@
     <div class="field">
       <label for="opening">Opening date:</label>
       <input type="date" id="opening" name="opening"
-       value="<%= @date %>"
-       min="01-01-2019" max="31-12-2025"/>
+      value="<%= @date %>"
+      min="01-01-2019" max="31-12-2025"/>
     </div>
 
     <div class="field">
@@ -27,16 +27,16 @@
       min="01-01-2019" max="31-12-2025"/>
     </div>
 
-    <div class="big-field">
+    <div class="field">
       <label for="description">Description:</label>
-      <input type="text" name="description" id="description"/>
+      <textarea name="description" rows="10" cols="70" wrap="soft" id="description"></textarea>
     </div>
 
     <div class="drop-down">
       <label for="select-artist">Artist:</label>
       <select name="artist_id" id="select-artist">
         <% @artists.each do |artist| %>
-          <option value=<%= artist.id %>><%= artist.name %></option>
+        <option value=<%= artist.id %>><%= artist.name %></option>
         <% end %>
       </select>
     </div>
@@ -45,14 +45,14 @@
       <label for="select-category">Category:</label>
       <select name="category_id" id="select-category">
         <% @categories.each do |category| %>
-          <option value=<%= category.id %>><%= category.name %></option>
+        <option value=<%= category.id %>><%= category.name %></option>
         <% end %>
       </select>
     </div>
 
     <div class="field">
       <label for="image">Image URL:</label>
-      <input type="text" name="image" id="image"/>
+      <textarea name="image" rows="3" cols="70" wrap="soft" id="bio"></textarea>
     </div>
 
     <div class="button">
@@ -60,3 +60,7 @@
     </div>
 
   </form>
+
+    <div class="button">
+      <form action="/admin/exhibitions/categories/new" method="GET"><input type="submit" value="Add Category"></form>
+    </div>

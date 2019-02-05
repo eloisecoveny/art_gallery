@@ -1,0 +1,17 @@
+<h1>All Categories</h1>
+
+
+<div class="field">
+  <form method="GET" action="/admin/exhibitions/categories/edit">
+    <ul>
+      <% for category in @categories %>
+      <li><input type="radio" id="category_id" name="id" value="<%= category.id %>"/>
+        <label for="<%= category.id %>"><%= category.name %></label></li>
+        <% end %>
+      </ul>
+      <input type="submit" value="Edit">
+    </form>
+  </div>
+
+  <form action="/admin/exhibitions/categories/new" method="GET"><input type="submit" value="Add Category"></form>
+</div>

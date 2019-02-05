@@ -15,17 +15,21 @@
 
     <div class="field">
       <label for="opening">Opening date:</label>
-      <input type="text" name="opening" id="opening" value="<%= @exhibit.opening %>"/>
+      <input type="date" id="opening" name="opening"
+      value="<%= @exhibit.opening %>"
+      min="01-01-2019" max="31-12-2025"/>
     </div>
 
     <div class="field">
       <label for="closing">Closing date:</label>
-      <input type="text" name="closing" id="closing" value="<%= @exhibit.closing %>"/>
+      <input type="date" name="closing" id="closing"
+      value="<%= @exhibit.closing %>"
+      min="01-01-2019" max="31-12-2025"/>
     </div>
 
-    <div class="big-field">
+    <div class="field">
       <label for="description">Description:</label>
-      <input type="text" name="description" id="description" value="<%= @exhibit.description %>"/>
+      <textarea name="description" rows="10" cols="70" wrap="soft" id="description" value="<%= @exhibit.description %>"><%= @exhibit.description %></textarea>
     </div>
 
     <div class="drop-down">
@@ -56,8 +60,7 @@
 
     <div class="field">
       <label for="image">Image URL:</label>
-      <input type="text" name="image" id="image"
-      value="<%= @exhibit.image %>"/>
+      <textarea name="image" rows="3" cols="70" wrap="soft" id="image" value="<%= @exhibit.image %>"><%= @exhibit.image %></textarea>
     </div>
 
     <div class="button">

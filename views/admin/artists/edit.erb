@@ -15,14 +15,12 @@
 
     <div class="field">
       <label for="bio">Biography:</label>
-      <input type="text" name="biography" id="bio"
-      value="<%= @artist.biography %>"/>
+      <textarea name="biography" rows="10" cols="70" wrap="soft" id="bio" value="<%= @artist.biography %>"><%= @artist.biography %></textarea>
     </div>
 
     <div class="field">
       <label for="image">Image URL:</label>
-      <input type="text" name="image" id="image"
-      value="<%= @artist.image %>"/>
+      <textarea name="image" rows="3" cols="70" wrap="soft" id="image" value="<%= @artist.image %>"><%= @artist.image %></textarea>
     </div>
 
     <div class="button">
