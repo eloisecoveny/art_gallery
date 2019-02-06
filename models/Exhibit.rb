@@ -21,6 +21,12 @@ class Exhibit
     sql = "INSERT INTO exhibits (title, subtitle, opening, closing, description, artist_id, category_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
     values = [@title, @subtitle, @opening, @closing, @description, @artist_id, @category_id, @image]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
+    if date_check()
+    end
+  end
+
+  def date_check()
+    return nil if @opening > @closing
   end
 
   def update()
@@ -36,7 +42,7 @@ class Exhibit
   end
 
   def self.all()
-    sql = "SELECT * FROM exhibits"
+    sql = "SELECT * FROM exhibits ORDER BY opening ASC"
     exhibits = SqlRunner.run(sql)
     return exhibits.map { |exhibit| Exhibit.new(exhibit) }
   end

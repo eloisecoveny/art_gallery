@@ -221,6 +221,7 @@ textarea {
 .show-wrapper img {
   object-fit: contain;
   padding-bottom: 2em;
+  max-height: -webkit-fill-available;
 }
 
 .form-wrapper {

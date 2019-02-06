@@ -3,6 +3,7 @@ require("sinatra/contrib/all")
 require_relative("../models/Exhibit")
 require_relative("../models/Artist")
 require_relative("../models/Category")
+require_relative("../models/TextFormat")
 also_reload("../models/*")
 
 
@@ -13,6 +14,7 @@ end
 
 get "/artists/:id" do
   @artist = Artist.find(params["id"])
+  @biography = TextFormat.format(@artist.biography)
   erb :"user/artists/show"
 end
 
@@ -47,5 +49,6 @@ end
 
 get "/exhibitions/:id" do
   @exhibit = Exhibit.find(params["id"])
+  @description = TextFormat.format(@exhibit.description)
   erb :"user/exhibits/show"
 end
