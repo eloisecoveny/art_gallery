@@ -33,7 +33,7 @@ nav a {
 
 nav a:hover {
   text-decoration: none;
-  color: Tomato;
+  color: rgb(136, 180, 252);
 }
 
 .home img {
@@ -63,7 +63,7 @@ footer a {
 
 footer a:hover {
   text-decoration: none;
-  color: Tomato;
+  color: rgb(136, 180, 252);
 }
 
 h1 {
@@ -174,7 +174,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  color: Tomato;
+  color: rgb(136, 180, 252);
 }
 
 textarea {
@@ -221,7 +221,8 @@ textarea {
 .show-wrapper img {
   object-fit: contain;
   padding-bottom: 2em;
-  max-height: -webkit-fill-available;
+  max-width: 100%;
+  max-height: auto;
 }
 
 .form-wrapper {
