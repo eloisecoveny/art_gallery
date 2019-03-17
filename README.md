@@ -14,15 +14,15 @@ I used a minimal design approach to allow plenty of white space for the exhibits
 
 ![Homepage](./ScreenGrabs/Homepage01.png)
 ![Homepage](./ScreenGrabs/Homepage02.png)
--- Public: homepage
+-> _Public: homepage_
 
 ![Add_Exhibit](./ScreenGrabs/Add_Exhibit01.png)
 ![Add_Exhibit](./ScreenGrabs/Add_Exhibit02.png)
--- Admin: adding an exhibit
+-> _Admin: adding an exhibit_
 
 ![Exhibits](./ScreenGrabs/Exhibits01.png)
 ![Exhibits](./ScreenGrabs/Exhibits02.png)
--- Public: filtered exhibits
+-> _Public: filtered exhibits_
 
 ## Build Setup
 ``` bash
