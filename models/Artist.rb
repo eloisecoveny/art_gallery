@@ -58,10 +58,14 @@ class Artist
   end
 
   def categories()
+    # Empty array for categories
     results = []
+    # For each exhibit belonging to an artist
     for exhibit in exhibits()
+      # Push the category name belonging to each exhibit into the results array
       results.push(exhibit.category.name)
     end
+    # Return the array of categories
     return results
   end
 
