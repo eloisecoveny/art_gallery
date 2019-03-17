@@ -12,8 +12,7 @@ I used a minimal design approach to allow plenty of white space for the exhibits
 
 ## Screen grabs
 
-![Homepage](./ScreenGrabs/Homepage01.png)
-![Homepage](./ScreenGrabs/Homepage02.png)
+![Homepage](./ScreenGrabs/Homepage01.png)![Homepage](./ScreenGrabs/Homepage02.png)
 Public: homepage
 
 ![Add_Exhibit](./ScreenGrabs/Add_Exhibit01.png)
@@ -22,7 +21,7 @@ Admin: adding an exhibit
 
 ![Exhibits](./ScreenGrabs/Exhibits01.png)
 ![Exhibits](./ScreenGrabs/Exhibits02.png)
-Public: filtering exhibits
+Public: filtered exhibits
 
 ## Build Setup
 ``` bash
