@@ -13,7 +13,6 @@ I used a minimal design approach to allow plenty of white space for the exhibits
 ## Screen grabs
 
 ![Homepage](./ScreenGrabs/Homepage01.png)
-![Homepage](./ScreenGrabs/Homepage02.png)
 -> _Public: homepage_
 
 ![Add_Exhibit](./ScreenGrabs/Add_Exhibit01.png)
