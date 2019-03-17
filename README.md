@@ -23,6 +23,7 @@ I used a minimal design approach to allow plenty of white space for the exhibits
 ![Exhibits](./ScreenGrabs/Exhibits03.png)
 ![Exhibits](./ScreenGrabs/Exhibits04.png)
 -> _Public: browsing exhibits_
+
 ![Exhibits](./ScreenGrabs/Exhibits02.png)
 -> _Public: filtered exhibits_
 
