@@ -3,8 +3,6 @@ require_relative("../models/Category")
 require_relative("../models/Exhibit")
 require_relative("../models/TextFormat")
 
-require("pry")
-
 Exhibit.delete_all()
 Category.delete_all()
 Artist.delete_all()
@@ -116,7 +114,3 @@ exhibit7 = Exhibit.new({"title" => "Robert Mapplethorpe", "subtitle" => "The Atk
 
 ARTIST ROOMS is a collection of international modern and contemporary art jointly owned by Tate and National Galleries of Scotland. ARTIST ROOMS was established through The d’Offay Donation in 2008, with the assistance of the National Heritage Memorial Fund, Art Fund and the Scottish and British Governments.", "artist_id" => artist7.id, "category_id" => category9.id, "image" => "https://www.tate.org.uk/art/images/work/AR/AR00185_9.jpg"})
 exhibit7.save()
-
-
-binding.pry
-nil
